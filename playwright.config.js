@@ -10,7 +10,7 @@ export default defineConfig({
   reporter: 'html',
   use: {
     baseURL: 'https://winesarg.vercel.app',
-    headless: false,
+    headless: !process.env.CI ? false : true,
     trace: 'on-first-retry',
   },
   projects: [
