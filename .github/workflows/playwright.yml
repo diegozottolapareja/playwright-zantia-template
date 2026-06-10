@@ -72,13 +72,13 @@ jobs:
           path: all-blob-reports
           merge-multiple: true
 
-      - name: Merge reports into HTML
-        run: npx playwright merge-reports --reporter=html ./all-blob-reports
+      - name: Merge reports into monocart
+        run: npx playwright merge-reports --reporter=monocart-reporter,./monocart.config.cjs ./all-blob-reports
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: playwright-report/
+          path: monocart-report/
 
       - name: Deploy to GitHub Pages
         id: deployment
